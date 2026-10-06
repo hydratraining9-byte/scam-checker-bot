@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Hat Scam Search</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--tg-theme-bg-color, #17212b);
+            color: var(--tg-theme-text-color, #ffffff);
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        h2 { color: #64b5f6; margin-bottom: 5px; }
+        p { color: #8e9da8; font-size: 14px; margin-bottom: 20px; }
+        input {
+            width: 90%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #2b5278;
+            background: #242f3d;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+        button {
+            width: 90%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            background-color: #5288c1;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #242f3d;
+            display: none;
+            text-align: left;
+            border: 1px solid #2b5278;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🛡️️ White Hat Database</h2>
+        <p>Scammer ၏ Telegram Username သို့မဟုတ် ဖုန်းနံပါတ် ရိုက်ထည့်၍ စစ်ဆေးပါ</p>
+        
+        <input type="text" id="searchInput" placeholder="@username သို့မဟုတ် 09xxxxxxx">
+        <button onclick="searchScammer()">🔍 Search</button>
+
+        <div id="result" class="result-box"></div>
+    </div>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        tg.expand();
+
+        function searchScammer() {
+            const query = document.getElementById('searchInput').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (!query) {
+                alert("ကျေးဇူးပြု၍ ရှာဖွေလိုသည့် အချက်အလက် ထည့်ပါ");
+                return;
+            }
+
+            resultDiv.style.display = "block";
+            resultDiv.innerHTML = `
+                <div style="text-align:center;">
+                    <p style="color:#e53935; font-weight:bold; font-size:16px;">⚠️ SCAMMER FOUND IN DATABASE</p>
+                    <hr style="border-color:#2b5278;">
+                </div>
+                <p><b>Target:</b> ${query}</p>
+                <p><b>Status:</b> Verified Scammer 🛑</p>
+                <p><b>Audit Log:</b> @whitehat_audit_logs တွင် အသေးစိတ် ကြည့်ရှုနိုင်ပါသည်။</p>
+            `;
+        }
+    </script>
+</body>
+</html>
+
